@@ -1,0 +1,11 @@
+{
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "description": "Ecommerce app with React and Redux",
+  "main": "index.js",
+  "author": "Samuel Cusi",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "2.2.1"
+  }
+}
