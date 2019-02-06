@@ -8,7 +8,7 @@ import {
   SAVE_PRODUCT_INIT,
   SAVE_PRODUCT_SUCCESS,
   SAVE_PRODUCT_FAILURE
-} from 'types';
+} from './types';
 import API from '../api';
 
 // Actions Creators
@@ -55,7 +55,7 @@ export function saveProductFailure (error) {
 
 //Actions Creators (Async)
 export function fetchProducts(){
-  return async (dispatch => {
+  return async (dispatch) => {
     dispatch(() => {
       return {
         type: FETCH_PRODUCTS_INIT
@@ -64,15 +64,15 @@ export function fetchProducts(){
 
     try{
       const data = await API.products.getAll();
-      return dispatch(fetchProductsSuccess(data.products))
+      return dispatch(fetchProductsSuccess(data.products));
     } catch(error) {
       return dispatch(fetchProductsFailure(error));
     }
-  });
+  };
 }
 
 export function fetchProduct(productId){
-  return async(dispatch => {
+  return async (dispatch) => {
     dispatch(()=>{
       return {
         type: FETCH_PRODUCT_INIT
@@ -81,15 +81,15 @@ export function fetchProduct(productId){
 
     try {
       const data = await API.products.getSingle(productId);
-      return dispatch(fetchProductSuccess(data.product);
+      return dispatch(fetchProductSuccess(data.product));
     } catch (error) {
-      return dispatch(fetchProductFailure(error);
+      return dispatch(fetchProductFailure(error));
     }
-  });
+  };
 }
 
 export function saveProduct(product){
-  return async(dispatch => {
+  return async (dispatch) => {
     dispatch(()=>{
       return {
         type: SAVE_PRODUCT_INIT
@@ -102,5 +102,5 @@ export function saveProduct(product){
     } catch (error) {
       return dispatch(saveProductFailure(error));
     }
-  });
+  };
 }
